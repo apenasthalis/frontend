@@ -1,0 +1,38 @@
+*{
+    font-family: 'Nome da Fonte', sans-serif;
+}
+
+
+.nav{
+display: flex;
+}
+
+.title{
+margin-top: 37px;
+margin-left: 45px;
+font-size: 2rem;
+width: 100px;
+height: 10px;
+/* padding: 5.91px, 3.38px, 0.48px, 3.27px; */
+color: #212121;
+font-weight: 700;
+}
+
+.submit{
+    background-color: transparent;
+    width:130px;
+    height:40px;
+    margin-left: 35px;
+    margin-top: 37px;
+    /* padding: 10px; */
+    border-radius: 10px;
+    border: 2px;
+    border: 1px solid #DBDBDB;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.submit:hover{
+background-color: #d8d7d7;
+
+}

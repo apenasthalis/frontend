@@ -1,0 +1,36 @@
+.div1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  height: 48.5vw;
+  flex-direction: column;
+}
+
+.title09{
+    font-size: 3.4rem
+}
+
+.divlabel{
+    width: 17rem;
+    height: 15rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.label{
+    width: 67px;
+    height: 28px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 1rem;
+}
+
+.escrever{
+    border-radius: 10px;
+    border: 1px solid #E0E0E0;
+    width: 16.6rem;
+    height: 3rem;
+}

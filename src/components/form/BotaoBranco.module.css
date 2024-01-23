@@ -1,0 +1,9 @@
+.btn{
+    width: 17rem;
+    height: 3rem;
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border:1px solid #DBDBDB;
+}

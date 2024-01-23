@@ -1,0 +1,20 @@
+.div{
+    width: 98vw;
+    height: 48.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div img{
+    width: 14rem;
+    height: 14rem;
+}
+
+.div span{
+    margin-top: 1rem;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+}

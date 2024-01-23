@@ -1,0 +1,22 @@
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  height: 48.5vw;
+  flex-direction: column;
+}
+
+.img {
+  width: 70rem;
+  height: 20rem;
+}
+
+.divbtn{
+    margin-top: 1rem;
+    width: 70rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1rem;
+}
