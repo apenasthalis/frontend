@@ -1,0 +1,15 @@
+.divitens{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.images{
+   width: 1.5rem;
+   height: 1.5rem; 
+   margin-left: 1rem;
+}
+.texto{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
