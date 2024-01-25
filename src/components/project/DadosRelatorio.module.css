@@ -50,7 +50,7 @@
   border-radius: 10px;
   margin-left: 1rem;
   margin-top: 1rem;
-  overflow: hidden;
+  overflow: auto;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr;
