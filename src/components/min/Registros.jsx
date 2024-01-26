@@ -22,13 +22,59 @@ function Registros() {
     buscarDadosHorasUsuario();
   }, []);
 
-  // console.log(dados.resultado);
-  try {
-    let arquivos = JSON.parse(dados.horarios);
-    console.log(arquivos);
-  } catch (error) {
-    console.error("Erro ao fazer parse do JSON:", error);
+ var resultados = [];
+
+ try {
+   var arquivos = JSON.parse(dados.horarios);
+
+   if (
+     typeof arquivos === "object" &&
+     arquivos !== null &&
+     Object.keys(arquivos).length > 0
+   ) {
+     for (var datab in arquivos) {
+       if (arquivos.hasOwnProperty(datab)) {
+         var dataResult = {
+           data: datab,
+           entradasSaidas: [],
+         };
+
+         arquivos[datab].forEach(function (item, index) {
+           var entradaSaida = {
+             hora: item.hora,
+             tipo: item.tipo,
+           };
+
+           dataResult.entradasSaidas.push(entradaSaida);
+         });
+
+         resultados.push(dataResult);
+       }
+     }
+   } else {
+     console.log("O objeto 'arquivos' não é válido ou está vazio.");
+   }
+ } catch (error) {
+   console.error("Erro ao fazer parse do JSON:", error);
+ }
+
+
+
+
+
+let arrayDeValores = [];
+
+for (let chave in dados.segundos) {
+  if (dados.segundos.hasOwnProperty(chave)) {
+    arrayDeValores.push(dados.segundos[chave]);
   }
+}
+
+console.log(arrayDeValores);
+
+
+
+
 
   return (
     <div>
@@ -41,246 +87,18 @@ function Registros() {
         <h2>HORAS TRABALHADAS</h2>
       </div>
       <div className={styles.grid}>
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />{" "}
-        <RegistrosHoras
-          data={"20/02/2021"}
-          entrada1={"08:09:32"}
-          saida1={"12:00:43"}
-          entrada2={"14:00:09"}
-          saida2={"19:09:08"}
-          horastrabalhadas={dados["resultado"]}
-        />
+        
+        {resultados.map((item, index) => (
+          <RegistrosHoras
+            key={item.data}
+            data={item.data}
+            entrada1={item.entradasSaidas[0].hora}
+            saida1={item.entradasSaidas[1].hora}
+            entrada2={item.entradasSaidas[2].hora}
+            saida2={item.entradasSaidas[3].hora}
+            horastrabalhadas={arrayDeValores[index]}
+          />
+        ))}
       </div>
     </div>
   );

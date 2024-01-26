@@ -15,22 +15,24 @@ import axios from "axios";
 
 function DadosRelatorio() {
 
-
+const [anoMesSelecionado, setAnoMesSelecionado] = useState("");
 const [dados, setDados] = useState([0]);
 
-useEffect(() => {
+const buscarDadosHorasUsuario = async () => {
   const apiUrl = "http://127.0.0.1:8000/api/cargahorariafuncionario/18";
 
-  axios
-    .get(apiUrl)
-    .then((response) => {
-      setDados(response.data);
-    })
-    .catch((error) => {
-      console.error("Erro ao buscar dados:", error);
-    });
-}, []);
+  try {
+    const { data } = await axios.get(apiUrl);
+    setDados(data);
+    console.log("Data", data);
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error);
+  }
+};
 
+useEffect(() => {
+  buscarDadosHorasUsuario();
+}, []);
   
   return (
     <div className={styles.divcinza}>
@@ -53,7 +55,7 @@ useEffect(() => {
           <BancodeHoras img={imgh} txt={"Expectativa: 184:00:00"} />
           <BancodeHoras
             img={imgg}
-            txt={"Banco de Horas"}
+            txt={"Banco de Horas: " + dados.resultado}
           />
         </div>
       </div>
