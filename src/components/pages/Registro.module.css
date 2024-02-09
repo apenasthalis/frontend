@@ -2,21 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 98vw;
-  height: 48.5vw;
+  width: 98dvw;
+  height: 97dvh;
   flex-direction: column;
 }
 
 .img {
-  width: 70rem;
-  height: 20rem;
+  width: 80dvw;
 }
 
 .divbtn{
     margin-top: 1rem;
-    width: 70rem;
+    width: 80dvw;
+    height: 8dvh;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     gap: 1rem;
+
+}
+
+.cam{
+  width: 80dvw;
+  height: 50dvh;
+border: 1px solid black;
 }

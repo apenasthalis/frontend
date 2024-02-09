@@ -1,0 +1,20 @@
+.div{
+    display: flex;
+    flex-direction: column;
+    width: 20dvw;
+    gap: 0.4rem;
+
+}
+
+.input{
+    width: 20dvw;
+    height: 5dvh;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+}
+
+.label{
+    margin-left: 0.4rem;
+    font-size: 14px;
+}

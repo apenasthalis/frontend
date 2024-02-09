@@ -1,7 +1,8 @@
 import styles from './Botao.module.css';
 
-function Botao({text}){
-    return <button className={styles.btn}>{text}</button>;
+function Botao({txt, onClick}){
+
+    return <input onClick={onClick} className={styles.btn} type="submit" value={txt} />;
 }
 
 export default Botao;

@@ -1,0 +1,141 @@
+.modal {
+  display: grid;
+  place-items: center;
+
+  position: fixed;
+  height: 100dvh;
+  width: 100dvw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(0.9dvh);
+}
+
+.nav {
+  width: 50dvw;
+}
+
+.nav h1 {
+  margin-left: 1rem;
+}
+
+.modal_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50dvw;
+  height: 72dvh;
+  background-color: rgb(238, 233, 233);
+  border-radius: 10px;
+}
+
+.body {
+  width: 50dvw;
+  height: 50dvh;
+}
+
+.down {
+  width: 50dvw;
+  height: 10dvh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.div {
+  width: 48dvw;
+  height: 10dvh;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  margin-left: 1rem;
+}
+
+.mid {
+  width: 48dvw;
+  height: 15dvh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-top: 0.6rem;
+}
+
+.mid label {
+  margin-left: 6px;
+  margin-bottom: 0.4rem;
+  font-size: 14px;
+}
+
+.mid textarea {
+  width: 45.2dvw;
+  height: 13dvh;
+  border-radius: 10px;
+  border: none;
+  text-align: start;
+  line-height: 30px;
+
+  padding: 0 0 0 7px;
+  resize: none;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  width: 45.6dvw;
+  height: 22dvh;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+/* .form{
+    width: 100%;
+    height: 90%;
+    
+} */
+
+.form input {
+  width: 45dvw;
+  height: 21.3dvh;
+  cursor: pointer;
+  border: dashed 1px;
+  /* background-color: gray; */
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+}
+
+.spana {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 45.5dvw;
+  height: 21dvh;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(221, 219, 219);
+  border-radius: 10px;
+  border: dashed 1px black;
+}
+
+.desc {
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.limit {
+    margin-top: 0.3rem;
+  text-decoration: none;
+  color: rgb(98, 93, 93);
+  font-size: 14px;
+
+}

@@ -3,24 +3,32 @@ import styles from "./Registros.module.css";
 import RegistrosHoras from "./RegistrosHoras";
 import axios from "axios";
 
-function Registros() {
+function Registros({anoSelecionado, mesSelecionado}) {
+  const userId = localStorage.getItem("user_id");
   const [dados, setDados] = useState([0]);
 
   const buscarDadosHorasUsuario = async () => {
-    const apiUrl = "http://127.0.0.1:8000/api/cargahorariafuncionario/18";
+    if (!userId || !anoSelecionado || !mesSelecionado) {
+      console.error("ID do usuário, ano ou mês não definidos");
+      return;
+   }
+    const apiUrl = `http://127.0.0.1:8000/api/cargahorariafuncionario/${userId}/${anoSelecionado}/${mesSelecionado}`;
+
+
+
 
     try {
       const { data } = await axios.get(apiUrl);
       setDados(data);
-      console.log("Data", data);
+      // console.log("Data", data);
     } catch (error) {
-      console.error("Erro ao buscar dados:", error);
+      // console.error("Erro ao buscar dados:", error);
     }
   };
 
   useEffect(() => {
     buscarDadosHorasUsuario();
-  }, []);
+  }, [userId, anoSelecionado, mesSelecionado]);
 
  var resultados = [];
 
@@ -59,10 +67,8 @@ function Registros() {
  }
 
 
+var arrayDeValores = [];
 
-
-
-let arrayDeValores = [];
 
 for (let chave in dados.segundos) {
   if (dados.segundos.hasOwnProperty(chave)) {
@@ -70,7 +76,7 @@ for (let chave in dados.segundos) {
   }
 }
 
-console.log(arrayDeValores);
+console.log(resultados);
 
 
 

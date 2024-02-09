@@ -1,0 +1,15 @@
+.btn{
+    margin-top: 0.3rem;
+    width: 160vh;
+    height: 5vh;
+    background-color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.btn img{
+    color: black;
+}

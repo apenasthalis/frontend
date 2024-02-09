@@ -4,6 +4,7 @@ import imgm from '../img/bar-chart-2.svg'
 import imgb from "../img/align-left.svg";
 import imgt from "../img/Perfil.svg";
 import imgk from "../img/log-out.svg"
+import { Link } from 'react-router-dom';
 
 function SideBar()
 {
@@ -11,12 +12,16 @@ function SideBar()
       <div className={styles.divlateral}>
         <h1 className={styles.title}>Leopard</h1>
         <div className={styles.divcoisas}>
-          <ComponentsBar imgg={imgm} txt={"Relatórios"} />
-          <ComponentsBar imgg={imgb} txt={"Dailys"} />
+          <Link className={styles.link} to="/relatorio">
+            <ComponentsBar imgg={imgm} txt={"Relatórios"} />
+          </Link>
+          <Link className={styles.link} to="/daily">
+            <ComponentsBar imgg={imgb} txt={"Dailys"} />
+          </Link>
         </div>
         <div className={styles.logout}>
           <ComponentsBar imgg={imgt} txt={"Thalis Gabriel"} />
-          <img  src={imgk} alt="" />
+          <img src={imgk} alt="" />
         </div>
       </div>
     );

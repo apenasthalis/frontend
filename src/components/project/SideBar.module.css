@@ -12,7 +12,7 @@
     flex-direction: column;
     gap: 7px;
     background-color: white;
-
+    text-decoration: none;
 }
 
 .title{
@@ -30,3 +30,7 @@
     align-items: center;
 }
 
+.link{
+    text-decoration: none;
+    color: black;
+}

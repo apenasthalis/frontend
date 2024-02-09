@@ -1,8 +1,7 @@
-
 import SelectAno from "../form/SelectAno";
 import SelectTransparent from "../form/SelectTransparent";
 import styles from "./DadosRelatorio.module.css";
-import immg from "../img/flag.svg"
+import immg from "../img/flag.svg";
 import imml from "../img/briefcase.svg";
 import imgh from "../img/alert-triangle.svg";
 import imgg from "../img/clock.svg";
@@ -11,18 +10,28 @@ import Registros from "../min/Registros";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
-
 function DadosRelatorio() {
-
-const [anoMesSelecionado, setAnoMesSelecionado] = useState("");
-const [dados, setDados] = useState([0]);
+  const [anoSelecionado, setAnoSelecionado] = useState("");
+  const [mesSelecionado, setMesSelecionado] = useState("");
+  const [dados, setDados] = useState([0]);
+  const userId = localStorage.getItem("user_id");
 
 const buscarDadosHorasUsuario = async () => {
-  const apiUrl = "http://127.0.0.1:8000/api/cargahorariafuncionario/18";
+  if (!anoSelecionado || !mesSelecionado || !userId) {
+    console.error("Ano, mês ou ID do usuário não definidos");
+    return;
+  }
+
+const apiUrl = `http://127.0.0.1:8000/api/cargahorariafuncionario/${userId}/${anoSelecionado}/${mesSelecionado}`;
 
   try {
-    const { data } = await axios.get(apiUrl);
+    const { data } = await axios.get(apiUrl, {
+      params: {
+        ano: anoSelecionado,
+        mes: mesSelecionado,
+      },
+    });
+
     setDados(data);
     console.log("Data", data);
   } catch (error) {
@@ -30,17 +39,28 @@ const buscarDadosHorasUsuario = async () => {
   }
 };
 
-useEffect(() => {
-  buscarDadosHorasUsuario();
-}, []);
-  
+
+  useEffect(() => {
+    buscarDadosHorasUsuario();
+  }, [anoSelecionado, mesSelecionado]);
+
+const handleAnoChange = (event) => {
+  setAnoSelecionado(event.target.value);
+};
+
+const handleMesChange = (event) => {
+  setMesSelecionado(event.target.value);
+};
+
+console.log(dados)
+
   return (
     <div className={styles.divcinza}>
       <nav className={styles.navs}>
         <h3 className={styles.title}>Relatorio</h3>
         <div className={styles.selects}>
-          <SelectTransparent />
-          <SelectAno />
+          <SelectTransparent mesSelecionado={mesSelecionado} onMesChange={handleMesChange}/>
+          <SelectAno anoSelecionado={anoSelecionado} onAnoChange={handleAnoChange} />
         </div>
       </nav>
       <div className={styles.minidiv}>
@@ -52,15 +72,12 @@ useEffect(() => {
           />
         </div>
         <div className={styles.dual}>
-          <BancodeHoras img={imgh} txt={"Expectativa: 184:00:00"} />
-          <BancodeHoras
-            img={imgg}
-            txt={"Banco de Horas: " + dados.resultado}
-          />
+          <BancodeHoras img={imgh} txt={"devendo: 00:00"} />
+          <BancodeHoras img={imgg} txt={"Banco de Horas: " + dados.resultado} />
         </div>
       </div>
       <div className={styles.dados}>
-        <Registros/>
+        <Registros anoSelecionado={anoSelecionado} mesSelecionado={mesSelecionado} />
       </div>
     </div>
   );

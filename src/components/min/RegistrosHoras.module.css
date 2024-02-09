@@ -5,3 +5,10 @@
     height:30px;
     align-items: center;
 }
+    
+.falta{
+  color: red;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
