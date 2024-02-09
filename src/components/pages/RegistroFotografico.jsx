@@ -18,9 +18,9 @@ function RegistroFotografico() {
         const response = await axios.post(
           "http://127.0.0.1:8000/api/cargahorariafuncionario",
           {
-            tb_funcionario_cd_funcionario: 13,
-            base64Image: imageSrc,
-            captureTime: captureTime,
+            "tb_funcionario_cd_funcionario": "13",
+            "base64Image": imageSrc,
+            "captureTime": captureTime,
           }
         );
 
