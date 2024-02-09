@@ -11,19 +11,19 @@
   width: 80dvw;
 }
 
-.divbtn{
-    margin-top: 1rem;
-    width: 80dvw;
-    height: 8dvh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: 1rem;
-
+.divbtn {
+  margin-top: 1rem;
+  width: 80dvw;
+  height: 8dvh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1rem;
 }
 
-.cam{
+.cam {
   width: 80dvw;
   height: 50dvh;
-border: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
 }
