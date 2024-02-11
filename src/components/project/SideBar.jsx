@@ -10,7 +10,9 @@ function SideBar()
 {
     return (
       <div className={styles.divlateral}>
-        <h1 className={styles.title}>Leopard</h1>
+        <div className={styles.titulo}>
+          <h1 className={styles.title}>Leopard</h1>
+        </div>
         <div className={styles.divcoisas}>
           <Link className={styles.link} to="/relatorio">
             <ComponentsBar imgg={imgm} txt={"Relatórios"} />

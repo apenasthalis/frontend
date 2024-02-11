@@ -1,0 +1,38 @@
+.divlateral{
+    width: 35vh;
+    height: 97vh;
+    border: 1px solid transparent;
+    background-color: white;
+}
+
+
+
+.divcoisas{
+    width: 30vh;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: white;
+    text-decoration: none;
+}
+
+.title{
+    font-size: 48px;
+    margin-left: 1rem;
+    margin-top: 0.01rem;
+}
+
+.logout{
+    background-color: white;
+
+    height: 6rem;
+    display: flex;
+    gap: 21px;
+    align-items: center;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}

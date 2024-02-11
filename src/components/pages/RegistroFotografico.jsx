@@ -11,16 +11,21 @@ function RegistroFotografico() {
   const capture = async () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
-      const captureTime = new Date().toISOString(); // Obter o horário atual como string no formato ISO
+      const captureTime = new Date().toISOString();
 
-      // Enviar a imagem e o horário para o backend
+     const payload = {
+       tb_funcionario_cd_funcionario: "13",
+       data: {
+         imagem: imageSrc,
+         horario: captureTime,
+       },
+     };
+
       try {
         const response = await axios.post(
           "http://127.0.0.1:8000/api/cargahorariafuncionario",
           {
-            "tb_funcionario_cd_funcionario": "13",
-            "base64Image": imageSrc,
-            "captureTime": captureTime,
+           payload
           }
         );
 

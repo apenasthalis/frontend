@@ -1,10 +1,17 @@
 .div{
-    width: 98vw;
-    height: 48.5vw;
+    width: 98dvw;
+    height: 97dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.centro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .div img{
