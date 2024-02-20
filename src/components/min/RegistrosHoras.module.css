@@ -5,6 +5,10 @@
     height:30px;
     align-items: center;
 }
+
+.grid span{
+  margin-left: 1rem;
+}
     
 .falta{
   color: red;

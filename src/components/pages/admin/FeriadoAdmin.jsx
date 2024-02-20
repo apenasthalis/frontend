@@ -1,5 +1,5 @@
 import styles from "./FeriadoAdmin.module.css";
-import SideBarAdmin from "../../../administrador/SideBarAdmin";
+import SideBarAdmin from "../../administrador/SideBarAdmin";
 
 function FeriadoAdmin() {
   return (

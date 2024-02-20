@@ -1,0 +1,59 @@
+.divcinza {
+  width: 170vh;
+  height: 97.7vh;
+}
+
+.navs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selects {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+  width: 40dvw;
+  height: 8dvh;
+
+}
+
+.title {
+  margin-left: 1rem;
+}
+
+.minidiv {
+  display: flex;
+  align-items: flex-start;
+  width: 97%;
+  margin-left: 1rem;
+  height: 6rem;
+  background-color: white;
+  border-radius: 10px;
+  gap: 4rem;
+}
+
+.minidiv span {
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.dual {
+  width: 50%;
+  height: 5rem;
+}
+
+.dados {
+  width: 97%;
+  height: 73vh;
+  border-radius: 10px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  overflow: auto;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+

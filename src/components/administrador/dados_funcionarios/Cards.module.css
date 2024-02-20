@@ -1,0 +1,28 @@
+.border{
+    width: 20dvw;
+    height: 12dvh;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.data{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.desc{
+    width: 10dvw;
+    height: 5dvh;
+    display: flex;
+    align-items: center;
+}

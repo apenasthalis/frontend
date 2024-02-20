@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
-import styles from "./Registros.module.css";
-import RegistrosHoras from "./RegistrosHoras";
+import { useEffect, useState } from "react";
+import styles from "./RegistrosAdmin.module.css";
 import axios from "axios";
-import ModalComponent from "../../modal/ModalComponent";
+import RegistrosHoras from "../../min/RegistrosHoras";
 
-function Registros({ anoSelecionado, mesSelecionado }) {
+function RegistrosAdmin({ cd_funcionario, anoSelecionado, mesSelecionado,  }) {
   const userId = localStorage.getItem("user_id");
   const [dados, setDados] = useState([0]);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+
+   
 
   const buscarDadosHorasUsuario = async () => {
-    if (!userId || !anoSelecionado || !mesSelecionado) {
-      console.error("ID do usuário, ano ou mês não definidos");
-      return;
-    }
-    const apiUrl = `http://127.0.0.1:8000/api/cargahorariafuncionario/${userId}/${anoSelecionado}/${mesSelecionado}`;
+    // if (!userId || !anoSelecionado || !mesSelecionado) {
+    //   console.error("ID do usuário, ano ou mês não definidos");
+    //   return;
+    // }
+    const apiUrl = `http://127.0.0.1:8000/api/cargahorariafuncionario/${cd_funcionario}/${anoSelecionado}/${mesSelecionado}`;
 
     try {
       const { data } = await axios.get(apiUrl);
@@ -26,9 +25,10 @@ function Registros({ anoSelecionado, mesSelecionado }) {
     }
   };
 
+
   useEffect(() => {
     buscarDadosHorasUsuario();
-  }, [userId, anoSelecionado, mesSelecionado]);
+  }, [cd_funcionario, anoSelecionado, mesSelecionado]);
 
   var resultados = [];
 
@@ -74,16 +74,7 @@ function Registros({ anoSelecionado, mesSelecionado }) {
     }
   }
 
-
-  const openModal = (index) => {
-    setModalIsOpen(true);
-    setSelectedItemIndex(index);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setSelectedItemIndex(null);
-  };
+  console.log(resultados);
 
   return (
     <div>
@@ -97,32 +88,19 @@ function Registros({ anoSelecionado, mesSelecionado }) {
       </div>
       <div className={styles.grid}>
         {resultados.map((item, index) => (
-          <React.Fragment key={index}>
-            <RegistrosHoras
-              key={item.data}
-              data={item.data}
-              entrada1={item.entradasSaidas[0].hora}
-              saida1={item.entradasSaidas[1].hora}
-              entrada2={item.entradasSaidas[2].hora}
-              saida2={item.entradasSaidas[3].hora}
-              horastrabalhadas={arrayDeValores[index]}
-              registros={item.entradasSaidas}
-              openModalRegistro={() => openModal(index)}
-            />
-            {selectedItemIndex === index && (
-              <ModalComponent
-                key={index}
-                title={"Justificar Falta"}
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                registros={item}
-              />
-            )}
-          </React.Fragment>
+          <RegistrosHoras
+            key={item.data}
+            data={item.data}
+            entrada1={item.entradasSaidas[0].hora}
+            saida1={item.entradasSaidas[1].hora}
+            entrada2={item.entradasSaidas[2].hora}
+            saida2={item.entradasSaidas[3].hora}
+            horastrabalhadas={arrayDeValores[index]}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-export default Registros;
+export default RegistrosAdmin;

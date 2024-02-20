@@ -23,7 +23,9 @@ function SideBar()
         </div>
         <div className={styles.logout}>
           <ComponentsBar imgg={imgt} txt={"Thalis Gabriel"} />
+          <Link to="/login">
           <img src={imgk} alt="" />
+          </Link>
         </div>
       </div>
     );

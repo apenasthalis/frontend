@@ -1,12 +1,13 @@
 import styles from './JustificativaAdmin.module.css'
-import SideBarAdmin from "../../../administrador/SideBarAdmin";
+import SideBarAdmin from "../../administrador/SideBarAdmin";
+import DadosJustificativa from '../../administrador/dados_justificativa/DadosJustificativa';
 
 function JustificativaAdmin(){
     return(
-        <>
+        <div className={styles.divbar}>
         <SideBarAdmin/>
-        <h1>pqp</h1>
-        </>
+        <DadosJustificativa/>
+        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 import styles from "./DailysAdmin.module.css";
-import SideBarAdmin from "../../../administrador/SideBarAdmin";
+import SideBarAdmin from "../../administrador/SideBarAdmin";
 
 function DailysAdmin() {
   return (

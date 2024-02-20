@@ -27,3 +27,8 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.webcam{
+  width: 80dvw;
+  height: 50dvh;
+}

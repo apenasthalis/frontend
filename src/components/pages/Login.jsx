@@ -68,7 +68,7 @@ const Login = ({ setIsAuthenticated }) => {
         />
         <Botao onClick={enviarDadosParaBackend} text={"Entrar"} />
       </div>
-      <Link to="/">
+      <Link to="/funcionario">
         <BotaoBranco text={"Voltar"} />
       </Link>
     </div>

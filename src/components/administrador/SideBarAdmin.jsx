@@ -1,18 +1,20 @@
 import styles from "./SideBarAdmin.module.css";
-import imguser from "../components/img/users.svg";
-import imgm from "../components/img/bar-chart-2.svg";
-import imgb from "../components/img/align-left.svg";
-import imgt from "../components/img/Perfil.svg";
-import imgk from "../components/img/log-out.svg";
-import imgcalendario from "../components/img/calendar.svg";
+import imguser from "../img/users.svg";
+import imgm from "../img/bar-chart-2.svg";
+import imgb from "../img/align-left.svg";
+import imgt from "../img/Perfil.svg";
+import imgk from "../img/log-out.svg";
+import imgcalendario from "../img/calendar.svg";
 import { Link } from "react-router-dom";
-import ComponentsBar from "../components/form/ComponentsBar";
+import ComponentsBar from "../form/ComponentsBar";
 
 function SideBarAdmin() {
   return (
     <div className={styles.divlateral}>
       <div className={styles.titulo}>
-      <h1 className={styles.title}>Leopard</h1>
+        <Link className={styles.link} to="/">
+          <h1 className={styles.title}>Leopard</h1>
+        </Link>
       </div>
       <div className={styles.divcoisas}>
         <Link className={styles.link} to="/funcionario">

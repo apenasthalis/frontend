@@ -1,0 +1,60 @@
+.divcinza {
+  width: 170vh;
+  height: 97.7vh;
+}
+
+.navs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin-left: 1rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 17dvw;
+  height: 6dvh;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.image {
+  width: 1rem;
+  height: 1rem;
+}
+
+
+.leftFunctions{
+  display: flex;
+  width: 30dvw;
+  gap: 1rem;
+}
+
+.search{
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.names{
+  margin-top: 1rem;
+  width: 79.3dvw;
+  height: 80dvh;
+  margin-left: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.6rem;
+  overflow: auto;
+}
