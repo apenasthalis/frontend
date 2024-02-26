@@ -4,11 +4,11 @@ import RegistrosHoras from "./RegistrosHoras";
 import axios from "axios";
 import ModalComponent from "../../modal/ModalComponent";
 
-function Registros({ anoSelecionado, mesSelecionado }) {
+function Registros({ anoSelecionado, mesSelecionado, onUpdate, onUpdateHour }) {
   const userId = localStorage.getItem("user_id");
   const [dados, setDados] = useState([0]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null);
 
   const buscarDadosHorasUsuario = async () => {
     if (!userId || !anoSelecionado || !mesSelecionado) {
@@ -20,15 +20,27 @@ function Registros({ anoSelecionado, mesSelecionado }) {
     try {
       const { data } = await axios.get(apiUrl);
       setDados(data);
+      onUpdate();
       // console.log("Data", data);
     } catch (error) {
       // console.error("Erro ao buscar dados:", error);
     }
   };
 
-  useEffect(() => {
-    buscarDadosHorasUsuario();
-  }, [userId, anoSelecionado, mesSelecionado]);
+
+const handleUpdate = () => {
+  // Lógica para atualizar os dados
+  onUpdate();
+};
+
+const handleUpdateHour = () => {
+  // Lógica para atualizar as horas
+  onUpdateHour();
+};
+
+useEffect(() => {
+  buscarDadosHorasUsuario();
+}, [userId, anoSelecionado, mesSelecionado]);
 
   var resultados = [];
 
@@ -74,7 +86,6 @@ function Registros({ anoSelecionado, mesSelecionado }) {
     }
   }
 
-
   const openModal = (index) => {
     setModalIsOpen(true);
     setSelectedItemIndex(index);
@@ -84,6 +95,9 @@ function Registros({ anoSelecionado, mesSelecionado }) {
     setModalIsOpen(false);
     setSelectedItemIndex(null);
   };
+
+
+
 
   return (
     <div>
@@ -105,7 +119,7 @@ function Registros({ anoSelecionado, mesSelecionado }) {
               saida1={item.entradasSaidas[1].hora}
               entrada2={item.entradasSaidas[2].hora}
               saida2={item.entradasSaidas[3].hora}
-              horastrabalhadas={arrayDeValores[index]}
+              horastrabalhadas={'alo'}
               registros={item.entradasSaidas}
               openModalRegistro={() => openModal(index)}
             />
@@ -124,5 +138,6 @@ function Registros({ anoSelecionado, mesSelecionado }) {
     </div>
   );
 }
+
 
 export default Registros;

@@ -21,8 +21,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/selecionarfuncionario" element={<SelecionarFuncionario />} />
-        <Route path="/registrofotografico" element={<RegistroFotografico />} />
+        <Route path="/selecionarfuncionario/:id" element={<SelecionarFuncionario />} />
+        <Route path="/registrofotografico/:id" element={<RegistroFotografico />} />
        <Route path="/login" 
          element={<Login setIsAuthenticated={setIsAuthenticated} />}
          />

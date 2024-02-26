@@ -4,10 +4,13 @@ import Webcam from "react-webcam";
 import Botao from "../form/Botao";
 import BotaoBranco from "../form/BotaoBranco";
 import styles from "./Registro.module.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function RegistroFotografico() {
+  const params = useParams("registrofotografico/:id");
   const webcamRef = useRef(null);
+
+  console.log(params.id)
 
   const capture = async () => {
     if (webcamRef.current) {
@@ -34,7 +37,7 @@ function RegistroFotografico() {
             imagem: imageSrc,
             data: data,
             horario: hora,
-            id: 13
+            id: params.id
           }
         );
 

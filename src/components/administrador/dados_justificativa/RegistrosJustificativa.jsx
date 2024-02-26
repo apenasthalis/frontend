@@ -13,6 +13,7 @@ function RegistrosJustificativa({id, dt_registro, funcionario, data, horario, ju
       await axios.put(`http://127.0.0.1:8000/api/justificativa`, {
         operacao: "rejeitar",
         dt_registro: data,
+        ts_registro: horario,
         cd_funcionario: id,
       });
 
@@ -26,6 +27,7 @@ function RegistrosJustificativa({id, dt_registro, funcionario, data, horario, ju
      try {
        await axios.put(`http://127.0.0.1:8000/api/justificativa`, {
          operacao: "aceitar",
+         ts_registro: horario,
          dt_registro: data,
          cd_funcionario: id,
        });

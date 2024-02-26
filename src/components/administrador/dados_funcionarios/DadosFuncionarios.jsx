@@ -3,10 +3,14 @@ import imagem from '../../img/Union.svg'
 import Cards from "./Cards";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Modal from "react-modal";
+import Botao from "../../form/Botao";
+import ModalAdm from "../modalAdm/ModalAdm";
 
 
 function DadosFuncionarios() {
   const [dados, setDados] = useState([0]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const buscarDadosHorasUsuario = async () => {
   
@@ -29,6 +33,15 @@ function DadosFuncionarios() {
     }, []);
 
 
+const openModal = () => {
+  setModalIsOpen(true);
+};
+
+const closeModal = () => {
+  setModalIsOpen(false);
+};
+
+
   return (
     <div className={styles.divcinza}>
       <nav className={styles.navs}>
@@ -41,7 +54,7 @@ function DadosFuncionarios() {
             id=""
             placeholder="Pesquisar"
           />
-          <button className={styles.btn}>
+          <button className={styles.btn} onClick={openModal}>
             {" "}
             <img className={styles.image} src={imagem} alt="" />
             Adicionar Funcionário
@@ -50,11 +63,15 @@ function DadosFuncionarios() {
       </nav>
       <div className={styles.names}>
         {dados.map((item) => (
-
-          <Cards key={item.cd_funcionario} name={item.no_funcionario} hour={"+09:02:53"} id={item.cd_funcionario} />
+          <Cards
+            key={item.cd_funcionario}
+            name={item.no_funcionario}
+            hour={"+09:02:53"}
+            id={item.cd_funcionario}
+          />
         ))}
-       
       </div>
+      <ModalAdm isOpen={modalIsOpen} onRequestClose={closeModal} />
     </div>
   );
 }
